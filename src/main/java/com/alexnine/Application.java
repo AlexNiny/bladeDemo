@@ -1,7 +1,10 @@
 package com.alexnine;
 
 import com.alexnine.config.MyBladeLoader;
+import com.alexnine.config.MyListener;
+import com.alexnine.exception.MyExceptionHandler;
 import com.blade.Blade;
+import com.blade.event.EventType;
 
 /**
  * @author alexnine
@@ -9,6 +12,10 @@ import com.blade.Blade;
  */
 public class Application {
     public static void main(String[] args) {
-        Blade.of().addLoader(new MyBladeLoader()).start(Application.class, args);
+        Blade.of()
+                .addLoader(new MyBladeLoader())
+                .event(EventType.SERVER_STARTED,new MyListener())
+                .exceptionHandler(new MyExceptionHandler())
+                .start(Application.class, args);
     }
 }

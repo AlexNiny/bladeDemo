@@ -8,14 +8,14 @@ import com.blade.mvc.annotation.GetRoute;
 import com.blade.mvc.annotation.JSON;
 import com.blade.mvc.annotation.Path;
 /**
- * @author yangxu
+ * @author AlexNine
  * Date 2019/5/30 15:48
  */
 @Path
 public class IndexController {
 
     @Inject
-    MyService myservice;
+    private MyService myservice;
 
 
     @GetRoute("/")

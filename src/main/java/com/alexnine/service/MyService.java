@@ -16,8 +16,8 @@ import static io.github.biezhi.anima.Anima.select;
 @Bean
 public class MyService {
 
-    public Result queryUser(){
-        List<User> list =  select().bySQL(User.class,"Select * from user").all();
+    public Result queryUser() {
+        List<User> list = select().bySQL(User.class, "Select * from user").all();
         return ResultUtils.success(list);
     }
 

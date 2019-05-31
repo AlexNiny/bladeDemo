@@ -1,6 +1,7 @@
 package com.alexnine.entity;
 
 import io.github.biezhi.anima.Model;
+import io.github.biezhi.anima.annotation.Table;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -10,6 +11,7 @@ import lombok.EqualsAndHashCode;
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
+@Table(name = "user")
 public class User  extends Model {
 
     private long id;
