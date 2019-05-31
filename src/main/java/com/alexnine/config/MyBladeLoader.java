@@ -4,10 +4,10 @@ import com.blade.Blade;
 import com.blade.loader.BladeLoader;
 import io.github.biezhi.anima.Anima;
 import lombok.extern.slf4j.Slf4j;
-import static io.github.biezhi.anima.Anima.select;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
+import static io.github.biezhi.anima.Anima.select;
 
 /**
  * @author alexnine
