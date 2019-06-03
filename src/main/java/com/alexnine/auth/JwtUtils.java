@@ -5,6 +5,7 @@ import com.alexnine.utils.ResultCodeEnum;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
+import com.auth0.jwt.exceptions.JWTDecodeException;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import com.blade.exception.BladeException;
 import com.mysql.cj.util.StringUtils;
@@ -50,15 +51,11 @@ public class JwtUtils {
      */
     public static DecodedJWT decodedJWT(final String token) {
         DecodedJWT jwt = null;
-        try {
-            // 使用了HMAC256加密算法。
-            JWTVerifier verifier = JWT.require(Algorithm.HMAC256(TOKEN_KEY))
-                    .withIssuer("BladeServer")
-                    .build();
-            jwt = verifier.verify(token);
-        } catch (Exception exception) {
-            exception.printStackTrace();
-        }
+        // 使用了HMAC256加密算法。
+        JWTVerifier verifier = JWT.require(Algorithm.HMAC256(TOKEN_KEY))
+                .withIssuer("BladeServer")
+                .build();
+        jwt = verifier.verify(token);
         return jwt;
     }
 

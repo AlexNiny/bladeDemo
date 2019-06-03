@@ -1,15 +1,12 @@
 package com.alexnine.hook;
 
 import com.alexnine.auth.JwtUtils;
-import com.blade.Environment;
 import com.blade.ioc.annotation.Bean;
 import com.blade.mvc.RouteContext;
 import com.blade.mvc.WebContext;
 import com.blade.mvc.hook.WebHook;
 import io.netty.util.internal.StringUtil;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.codec.binary.StringUtils;
-
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

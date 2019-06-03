@@ -1,8 +1,8 @@
 package com.alexnine.exception;
 
-import com.alexnine.utils.Result;
 import com.alexnine.utils.ResultCodeEnum;
 import com.alexnine.utils.ResultUtils;
+import com.auth0.jwt.exceptions.JWTDecodeException;
 import com.blade.exception.BladeException;
 import com.blade.mvc.WebContext;
 import com.blade.mvc.handler.ExceptionHandler;
@@ -22,7 +22,9 @@ public class MyExceptionHandler implements ExceptionHandler {
         //根据自己的需要进行处理
         if (e instanceof BladeException){
             renderJsonResponse(WebContext.response(),((BladeException) e).getStatus(),((BladeException) e).getName());
-        }else {
+        }else if (e instanceof JWTDecodeException){
+            renderJsonResponse(WebContext.response(),ResultCodeEnum.BUSINESS_ERROR.getCode(),"Token解析错误");
+        } else {
             renderJsonResponse(WebContext.response(),ResultCodeEnum.BUSINESS_ERROR.getCode(),e.toString());
         }
         e.printStackTrace();
@@ -33,7 +35,6 @@ public class MyExceptionHandler implements ExceptionHandler {
      * @param response response对象
      */
     private void renderJsonResponse(Response response,Integer code,String message) {
-        Result result = ResultUtils.error(code, message);
-        response.json(result);
+        response.json(ResultUtils.error(code, message));
     }
 }

@@ -1,7 +1,6 @@
 package com.alexnine.config;
 
 import com.blade.ioc.annotation.Bean;
-import com.blade.task.annotation.Schedule;
 
 /**
  * @author AlexNine
